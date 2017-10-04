@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/_name should match snapshot 1`] = `
+<section
+  class="container"
+>
+  <!---->
+   
+  <h1
+    class="title"
+  >
+    
+    Welcome 
+  
+  </h1>
+   
+  <div>
+    <nuxt-link
+      to="/counter"
+    >
+      Counter
+    </nuxt-link>
+     
+    <nuxt-link
+      exact=""
+      to="/"
+    >
+      Back to home
+    </nuxt-link>
+  </div>
+</section>
+`;

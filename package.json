@@ -1,0 +1,53 @@
+{
+  "name": "nuxt-experiments",
+  "version": "1.0.0",
+  "description": "Nuxt.js project",
+  "author": "Roman Quelen <rquelen@octo.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:fix": "npm run lint -- --fix",
+    "precommit": "npm run lint",
+    "unit": "jest",
+    "test": "npm run lint && npm run unit"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.0.1",
+    "nuxt": "^1.3.0"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.11",
+    "babel-eslint": "^8.2.1",
+    "babel-jest": "^22.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^4.18.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-html": "^4.0.2",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.9.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.2.2",
+    "jest": "^22.3.0",
+    "jest-vue-preprocessor": "^1.3.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "~/(components|plugins|services)/([^\\.]*)$": "<rootDir>/$1/$2"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor"
+    }
+  }
+}

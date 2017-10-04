@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`root page should match snapshot 1`] = `
+<section
+  class="container"
+>
+  <!---->
+   
+  <h1
+    class="title"
+  >
+    
+    Welcome
+  
+  </h1>
+   
+  <div>
+    <nuxt-link
+      to="/counter"
+    >
+      Counter
+    </nuxt-link>
+     
+    <nuxt-link
+      exact=""
+      to="/everyone"
+    >
+      Welcome who ?
+    </nuxt-link>
+  </div>
+   
+  <div
+    class="links"
+  >
+    <a
+      class="button--green"
+      href="https://nuxtjs.org/"
+      target="_blank"
+    >
+      Documentation
+    </a>
+     
+    <a
+      class="button--grey"
+      href="https://github.com/nuxt/nuxt.js"
+      target="_blank"
+    >
+      GitHub
+    </a>
+  </div>
+</section>
+`;

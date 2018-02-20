@@ -38,4 +38,7 @@ module.exports = {
   ignore: [
     '**/*.spec.*',
   ],
+  modules: [
+    '@nuxtjs/axios',
+  ],
 };

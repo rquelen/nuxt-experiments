@@ -13,6 +13,26 @@ describe('/counter', () => {
     expect(wrapper.element).toMatchSnapshot();
   });
 
+  describe('asyncData', () => {
+    it('should initialize data with API value asynchronously', async () => {
+      // given
+      const $axios = {
+        get: jest.fn(),
+      };
+
+      $axios.get.mockReturnValue(Promise.resolve({ data: '11' }));
+
+      const wrapper = shallow(Counter);
+
+      // when
+      const asyncData = await wrapper.vm.$options.asyncData({app: {$axios}});
+
+      // then
+      expect($axios.get).toHaveBeenCalledWith('http://www.mocky.io/v2/5a01affc300000da45fac0cf');
+      expect(asyncData).toEqual({ total: '11' });
+    });
+  });
+
   it('should initialize counter to 0', () => {
     // when
     const wrapper = shallow(Counter);

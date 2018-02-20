@@ -16,6 +16,12 @@ export default {
   components: {
     ButtonCounter,
   },
+  asyncData ({app}) {
+    return app.$axios.get('http://www.mocky.io/v2/5a01affc300000da45fac0cf')
+      .then(response => ({
+        total: response.data,
+      }));
+  },
   data () {
     return {
       total: 0,

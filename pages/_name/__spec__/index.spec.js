@@ -1,4 +1,6 @@
 import {shallow} from '@vue/test-utils';
+import Multiselect from 'vue-multiselect';
+
 import Name from '../index.vue';
 
 describe('/_name', () => {
@@ -25,16 +27,16 @@ describe('/_name', () => {
       expect(title.text()).toContain('Welcome');
     });
 
-    it('should update when msg data is changed', () => {
+    it('should update when selectedOption data is changed', () => {
       // given
       const wrapper = shallow(Name, { mocks: { $route } });
 
       // when
-      wrapper.setData({msg: 'test'});
+      wrapper.setData({selectedOption: 'Bonjour'});
 
       // then
       const title = wrapper.find('.title');
-      expect(title.text()).toContain('test');
+      expect(title.text()).toContain('Bonjour');
     });
 
     it('should contain name in url params', () => {
@@ -52,5 +54,26 @@ describe('/_name', () => {
       const title = wrapper.find('.title');
       expect(title.text()).toContain('nuxt');
     });
+  });
+
+  it('should contains Multiselect with proper props', () => {
+    // when
+    const wrapper = shallow(Name, { mocks: { $route } });
+
+    // then
+    const selectWrapper = wrapper.find(Multiselect);
+
+    const selectModel = selectWrapper.vm.$vnode.data.model.value;
+    expect(selectModel).toBe('Welcome');
+
+    const selectAttributes = selectWrapper.vm.$attrs;
+    expect(selectAttributes.options).toEqual(['Welcome', 'Bonjour', 'Ciao']);
+    expect(selectAttributes.searchable).toBe(false);
+    expect(selectAttributes['allow-empty']).toBe(false);
+
+    const selectOptions = selectWrapper.vm.$options.propsData;
+    expect(selectOptions.deselectLabel).toBe('');
+    expect(selectOptions.selectLabel).toBe('');
+    expect(selectOptions.selectedLabel).toBe('');
   });
 });

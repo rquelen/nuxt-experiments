@@ -39,7 +39,7 @@ describe('/counter', () => {
 
     // then
     const paragraph = wrapper.find('p');
-    expect(paragraph.text()).toEqual('0');
+    expect(paragraph.text()).toContain('0');
   });
 
   it('should increment counter on event increment from either buttons', () => {
@@ -54,6 +54,6 @@ describe('/counter', () => {
 
     // then
     const paragraph = wrapper.find('p');
-    expect(paragraph.text()).toEqual('2');
+    expect(paragraph.text()).toContain('2');
   });
 });

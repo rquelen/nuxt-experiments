@@ -17,7 +17,7 @@ describe('ButtonCounter', () => {
 
     // then
     const button = wrapper.find('.test');
-    expect(button.text()).toEqual('0');
+    expect(button.text()).toContain('0');
   });
 
   it('should increment counter on click', () => {
@@ -29,7 +29,7 @@ describe('ButtonCounter', () => {
     button.trigger('click');
 
     // then
-    expect(button.text()).toEqual('1');
+    expect(button.text()).toContain('1');
   });
 
   it('should emit an event increment on click', () => {
